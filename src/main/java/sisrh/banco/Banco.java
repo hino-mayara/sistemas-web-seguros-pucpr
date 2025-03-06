@@ -142,6 +142,30 @@ public class Banco {
 		return lista;
 	}
 	
+	public static List<Solicitacao> listarSolicitacoes(String usuario) throws Exception {
+		List<Solicitacao> lista = new ArrayList<Solicitacao>();
+		Connection conn = Banco.getConexao();
+		String sql = "SELECT * FROM Solicitacao as s "
+				+ "INNER JOIN Empregado as e ON s.matricula = e.matricula "
+				+ "INNER JOIN Usuario as u ON e.matricula = u.matricula "
+				+ "WHERE u.nome = ?";
+		PreparedStatement prepStmt = conn.prepareStatement(sql);
+		prepStmt.setString(1, usuario);
+		ResultSet rs = prepStmt.executeQuery();
+		while (rs.next()) {
+			Integer id = rs.getInt("id");
+			Date data = rs.getDate("data");
+			String descricao = rs.getString("descricao");
+			Integer situacao = rs.getInt("situacao");
+			String matricula = rs.getString("matricula");
+			Solicitacao solicitacao = new Solicitacao(id, data, descricao, situacao, matricula);
+			lista.add(solicitacao);
+		}
+		rs.close();
+		prepStmt.close();
+		return lista;
+	}
+	
 	// ---------------------- CONSULTAS ----------------------
 	
 	public static Empregado buscarEmpregadoPorMatricula(String matricula) throws SQLException {

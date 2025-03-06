@@ -9,4 +9,8 @@
 		url-pattern="/soap/empregado">
 	</endpoint>
 
+	<endpoint name="SolicitacaoService"
+		implementation="sisrh.soap.ServicoSolicitacao"
+		url-pattern="/soap/solicitacao">
+	</endpoint>
 </endpoints>
