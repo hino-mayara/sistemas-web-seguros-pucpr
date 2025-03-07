@@ -9,10 +9,10 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.WebServiceContext;
 
-import seguranca.Autenticador;
 import sisrh.banco.Banco;
 import sisrh.dto.Empregado;
 import sisrh.dto.Empregados;
+import sisrh.seguranca.Autenticador;
 
 @WebService
 @SOAPBinding(style = Style.RPC)

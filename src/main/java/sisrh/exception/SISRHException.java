@@ -1,4 +1,4 @@
-package exception;
+package sisrh.exception;
 
 import javax.xml.ws.WebFault;
 

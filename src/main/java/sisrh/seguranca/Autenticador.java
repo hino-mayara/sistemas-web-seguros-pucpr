@@ -1,4 +1,4 @@
-package seguranca;
+package sisrh.seguranca;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -11,8 +11,8 @@ import java.util.Map;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 
-import exception.SISRHException;
 import sisrh.banco.Banco;
+import sisrh.exception.SISRHException;
 
 public class Autenticador {
 	@SuppressWarnings("rawtypes")
